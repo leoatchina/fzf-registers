@@ -13,10 +13,10 @@ function! fzf_registers#registers()
         let reg_lst = split(reg, '\n')
     endif
     " cut head
-    if reg_lst[0][0:3] == 'Type'
-        let cut_head = 1
-    else
+    if reg_lst[0][0] ==# '"'
         let cut_head = 0
+    else
+        let cut_head = 1
     endif
     let lst = []
     for reg in reg_lst[1:]
