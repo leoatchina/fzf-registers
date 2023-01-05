@@ -35,9 +35,9 @@ function! fzf_registers#registers()
 endfunction
 
 function! fzf_registers#paste_select(select) dict
-    " NOTE: select[1] is the name of register
+    " NOTE: select[0] is the name of register
     let reg = a:select[0]
-    if self.visual
+    if self.visual > 0
         let cmd = 'gv"' . reg . self.paste
     else
         let cmd = '"' . reg . self.paste
